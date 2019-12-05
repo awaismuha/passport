@@ -84,6 +84,26 @@ class Client extends Model
     }
 
     /**
+     * Determine if the client is a personal access client.
+     *
+     * @return bool
+     */
+    public function personalAccessClient()
+    {
+        return $this->personal_access_client;
+    }
+
+    /**
+     * Determine if the client is a password client.
+     *
+     * @return bool
+     */
+    public function passwordClient()
+    {
+        return $this->password_client;
+    }
+
+    /**
      * Determine if the client should skip the authorization prompt.
      *
      * @return bool
@@ -91,15 +111,5 @@ class Client extends Model
     public function skipsAuthorization()
     {
         return false;
-    }
-
-    /**
-     * Determine if the client is a confidential client.
-     *
-     * @return bool
-     */
-    public function confidential()
-    {
-        return ! empty($this->secret);
     }
 }
